@@ -6,7 +6,7 @@ exports.update = function(req, res){
   key = "heartbeat:user:" + name
 
   redis.exists( key, function(err,value) {
-    redis.hset( key, "name", req.body.name);
+    redis.hset( key, "name", name);
     
     if( !err ) {
       console.log("name:" + name);

@@ -31,7 +31,7 @@ exports.create = function(req,res){
   redis.exists( key, function(err,value) {
     if( !err ) {
       console.log("name:" + name);
-      redis.hset( key, "name", req.body.name);
+      redis.hset( key, "name", name);
       redis.hsetnx( key, "beatX", 0 );
       redis.hsetnx( key, "beatY", 0 );
       redis.hsetnx( key, "beatZ", 0 );
