@@ -7,6 +7,11 @@ var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var redis = require('redis-url').connect(process.env.REDISTOGO_URL);
 
+io.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
+
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');

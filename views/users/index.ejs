@@ -36,6 +36,12 @@
   socket.on('beat:update', function (data) {
     console.log("beat:update coming");
     console.log(data);
+    $this = $("[data-user-key='" + data.key + "']");
+    $this.attr( "data-beatX", data.beatX );
+    $this.attr( "data-beatY", data.beatY );
+    $this.attr( "data-beatZ", data.beatZ );
+    update_one( $this );
+    true
   });
   
   $(function(){
