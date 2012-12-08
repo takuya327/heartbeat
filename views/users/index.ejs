@@ -12,19 +12,23 @@
 <script src="/socket.io/socket.io.js"></script>
 <script>
   var update_one = function($this) {
+    var key   = $this.attr("data-user-key");
     var beatX = parseFloat( $this.attr("data-beatX") );
     var beatY = parseFloat( $this.attr("data-beatY") );
     var beatZ = parseFloat( $this.attr("data-beatZ") );
     var val = beatX + beatY + beatZ;
     var src = "";
+    console.log( key + ": " + val );
     
     if( val < 0.1 ) {
-      src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_dying.png";
+      src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_dead.png";
     } else if ( val < 0.2 ) {
-      src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_bad.png";
+      src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_dying.png";
     } else if ( val < 0.3 ) {
-      src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_normal.png";
+      src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_bad.png";
     } else if ( val < 0.4 ) {
+      src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_normal.png";
+    } else if ( val < 0.5 ) {
       src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_better.png";
     } else {
       src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_best.png";
