@@ -20,10 +20,14 @@
     var src = "";
     console.log( key + ": " + val );
     
+    var dead = false;
+    var dying = false;
     if( val == 0 ) {
       src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_dead.png";
+      dead = true;
     } else if ( val < 1 ) {
       src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_dying.png";
+      dying = true;
     } else if ( val < 10 ) {
       src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_bad.png";
     } else if ( val < 30 ) {
@@ -32,6 +36,13 @@
       src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_better.png";
     } else {
       src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_best.png";
+    }
+    
+    $this.find("img.profile_filter").hide();
+    if ( dead ) {
+      $this.find("img.dead").show();
+    } else if( dying ) {
+      $this.find("img.dying").show();
     }
     $this.find("dd > img").attr( "src", src );
   };
@@ -73,7 +84,7 @@
 <% for( var i = 0, len = users.length; i < len; i++ ) { %>
 <% var user = users[i]; %>
         <li data-user-key="<%= user.key %>" data-beatX="<%= user.beatX %>" data-beatY="<%= user.beatY %>" data-beatZ="<%= user.beatZ %>">
-          <p><img src="http://api.twitter.com/1/users/profile_image?screen_name=<%= user.name %>&size=normal" width="128" alt="" class="profile_ph"></p>
+          <p><img src="http://api.twitter.com/1/users/profile_image?screen_name=<%= user.name %>&size=normal" width="128" alt="" class="profile_ph"><img src="images/dying_filter.png" width="128" alt="" class="profile_filter dying"><img src="images/dead_filter.png" width="128" alt="" class="profile_filter dead"></p>
           <dl>
             <dt class="title_twitter_id"><strong><%= user.name %></strong>　は現在</dt>
             <dd><img src="" alt="" width="143" class="beat_stat"><br>

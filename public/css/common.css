@@ -176,7 +176,7 @@ header#top h1{ }
     contents
 ----------------------------------------------------------------- */
 #wrapper{ }
-#container{ }
+#container{ padding-bottom:50px;}
 
 
 /* register */
@@ -223,7 +223,9 @@ header#top h1{ }
 	line-height: 0;
 	visibility: hidden;
 }
+#heart_beat p { position:relative;}
 .profile_ph{ float:left; margin-right:20px;}
+.profile_filter{ position:absolute; left:0; top:0;}
 #heart_beat ul li dl { text-align:left;}
 #heart_beat ul li dl dt{}
 #heart_beat ul li dl dd{}
