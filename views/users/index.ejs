@@ -19,15 +19,15 @@
     var src = "";
     
     if( val < 0.1 ) {
-      src = "images/state_dying.png";
+      src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_dying.png";
     } else if ( val < 0.2 ) {
-      src = "images/state_bad.png";
+      src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_bad.png";
     } else if ( val < 0.3 ) {
-      src = "images/state_normal.png";
+      src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_normal.png";
     } else if ( val < 0.4 ) {
-      src = "images/state_better.png";
+      src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_better.png";
     } else {
-      src = "images/state_best.png";
+      src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_best.png";
     }
     $this.find("dd > img").attr( "src", src );
   };
