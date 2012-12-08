@@ -1,0 +1,303 @@
+@charset "UTF-8";
+/* ----------------------------------------------------------------
+    Default Style Reset
+----------------------------------------------------------------- */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,p,table,th,td,img,form{
+	margin:0;
+	padding:0;
+	-webkit-text-size-adjust : none;
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	display:block;
+}
+img{
+	border:none;
+	/*vertical-align: bottom;*/
+}
+table{
+	border-collapse:collapse;
+	border-spacing:0;
+}
+table th{
+	font-weight:normal;
+	vertical-align:top;
+}
+th td{
+	vertical-align:top;
+}
+ol,ul{
+	list-style:none;
+}
+body{
+	font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+	line-height:1.5;
+	font-size:12px;
+	text-align:center;
+}
+table{
+	font-size:1em;
+}
+h1,h2,h3,h4,h5{
+	font-size:100%;
+	font-weight:normal;
+}
+a{
+	outline:none;
+	text-decoration:none;
+}
+/*a:hover{
+	text-decoration:underline;
+}*/
+address{
+  font-style:normal;
+}
+/* clear */
+.clear:after {
+	content: ".";  /* 新しい要素を作る */
+	display: block;  /* ブロックレベル要素に */
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+.clear_both{
+	clear:both;
+}
+/* ----------------------------------------------------------------
+    Clearfix
+----------------------------------------------------------------- */
+.clearfix:after , header:after , .pagetop:after{
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	font-size: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+
+
+
+/* margin */
+.mgt0{ margin-top:0 !important; padding-top:0 !important}
+.mgt3{ margin-top:3px !important;}
+.mgt5{ margin-top:5px !important;}
+.mgt6{ margin-top:6px !important;}
+.mgt10{ margin-top:10px !important;}
+.mgt11{ margin-top:11px !important;}
+.mgt15{ margin-top:15px !important;}
+.mgt18{ margin-top:18px !important;}
+.mgt20{ margin-top:20px !important;}
+.mgt25{ margin-top:25px !important;}
+.mgt27{ margin-top:27px !important;}
+.mgt30{ margin-top:30px !important;}
+.mgt35{ margin-top:35px !important;}
+.mgt38{ margin-top:38px !important;}
+.mgt40{ margin-top:40px !important;}
+.mgt44{ margin-top:44px !important;}
+.mgt45{ margin-top:45px !important;}
+.mgt50{ margin-top:50px !important;}
+
+.mgb5 { margin-bottom:5px !important;}
+.mgb10 { margin-bottom:10px !important;}
+.mgb15 { margin-bottom:15px !important;}
+.mgb20 { margin-bottom:20px !important;}
+.mgb30 { margin-bottom:30px !important;}
+.mgb40 { margin-bottom:40px !important;}
+.mgb50 { margin-bottom:50px !important;}
+.mgb60 { margin-bottom:60px !important;}
+.mgb70 { margin-bottom:70px !important;}
+
+.mgr3{ margin-right:3px;}
+.mgr6{ margin-right:6px;}
+.mgr15{ margin-right:15px;}
+.mgr28{ margin-right:28px;}
+
+
+
+
+/* parts */
+
+.floatL{ text-align:left; float:left;}
+.floatR{ text-align:right; float:right;}
+.ct{ text-align:center;}
+.txtR{ text-align:right;}
+.txtL{ text-align:left;}
+
+.bg{ background:url(../images/bg.png) repeat;}
+.btnA{ background-image: -ms-linear-gradient(top, #FFFFFF 0%, #CCC 100%);
+	
+	/* Mozilla Firefox */ 
+	background-image: -moz-linear-gradient(top, #FFFFFF 0%, #CCC 100%);
+	
+	/* Opera */ 
+	background-image: -o-linear-gradient(top, #FFFFFF 0%, #CCC 100%);
+	
+	/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #CCC));
+	
+	/* Webkit (Chrome 11+) */ 
+	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #CCC 100%);
+	
+	/* W3C Markup, IE10 Release Preview */ 
+	background-image: linear-gradient(to bottom, #FFFFFF 0%, #CCC 100%);
+	border:1px solid #DDD;
+	
+    border-radius: 3px;        /* CSS3草案 */  
+    -webkit-border-radius: 3px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 3px;   /* Firefox用 */
+	
+	padding:5px 10px;
+	cursor:pointer;
+}
+
+
+/* script */
+#loader{ display:none;}
+
+html,body{ width:100%; height:100%;}
+body{ background-color:#000;}
+
+
+/* ----------------------------------------------------------------
+    Layout
+----------------------------------------------------------------- */
+/* Header
+------------------------------------------------ */
+header#top{ padding:20px 0 10px;}
+header#top h1{ }
+
+
+
+
+/* ----------------------------------------------------------------
+    contents
+----------------------------------------------------------------- */
+#wrapper{ height:100%;}
+#container{ width:100%; height:100%; background:url(../images/bg.png) repeat #ffd800;}
+
+
+
+#top_register{
+	width:255px;
+	margin:0 auto;
+	text-align:left;
+	background-color:#b89c02;
+	
+    border-radius: 5px;        /* CSS3草案 */  
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 5px;   /* Firefox用 */
+}
+.register_text_area{ width:220px; text-align:center;}
+.top_registerSet{ width:230px; margin:0 auto; padding:15px 0;}
+
+
+
+/* ----------------------------------------------------------------
+    top
+----------------------------------------------------------------- */
+
+.btn_goTop{
+background: -moz-linear-gradient(center top , #81BC2E, #659324) repeat scroll 0 0 transparent !important;
+	border:none;
+    border-radius: 5px;
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1), 0 -2px 0 0 rgba(0, 0, 0, 0.2) inset;
+    color: #FFFFFF !important;
+    height: 100%;
+    transition: all 0.25s linear 0s;
+    width: 90%;
+	margin:15px;
+	padding:15px;
+	cursor:pointer;
+	text-shadow:-1px -1px 1px #659324;
+}
+
+
+
+
+
+
+
+
+/* pagetop */
+.pagetop{
+	width:50px;
+	float:right;
+	margin:20px 10px 0 0;
+  }
+.pagetop a{ width:50px; display:block;
+
+   /* ▼CSS3 */
+   border-top-left-radius: 5px;  /* 左上 */
+   border-top-right-radius: 5px; /* 右上 */
+
+   /* ▼Safari,Chrome */
+   -webkit-border-top-left-radius: 5px;  /* 左上 */
+   -webkit-border-top-right-radius: 5px; /* 右上 */
+
+   /* ▼Firefox */
+   -moz-border-radius-topleft: 5px;  /* 左上 */
+   -moz-border-radius-topright: 5px; /* 右上 */
+
+   /* ▼共通装飾 */
+   background-color: #eeeeee;   /* 背景色 */
+   padding:5px 0;
+}
+
+
+
+
+
+
+
+/* ----------------------------------------------------------------
+    footer
+----------------------------------------------------------------- */
+footer{}
+#footer_navi ul{
+	display: -webkit-box;
+    display: -moz-box;
+    display: -o-box;
+    display: box;
+	width:100%;
+}
+#footer_navi ul li{
+	height:45px;
+    -webkit-box-flex: 1.0;
+    -moz-box-flex: 1.0;
+    box-flex: 1.0;
+	
+
+	
+	font-size:9px;
+	color:#FFF;
+}
+#footer_navi ul li:last-child{
+	border-right:none;
+}
+#footer_navi ul li.nav_on{
+	height:45px;
+    -webkit-box-flex: 1.0;
+    -moz-box-flex: 1.0;
+    box-flex: 1.0;
+	
+	background: #3c3c3c; /* Old browsers */
+background: -moz-linear-gradient(top,  #3c3c3c 0%, #080808 50%, #272727 51%, #4f4f4f 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3c3c3c), color-stop(50%,#080808), color-stop(51%,#272727), color-stop(100%,#4f4f4f)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #3c3c3c 0%,#080808 50%,#272727 51%,#4f4f4f 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #3c3c3c 0%,#080808 50%,#272727 51%,#4f4f4f 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #3c3c3c 0%,#080808 50%,#272727 51%,#4f4f4f 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #3c3c3c 0%,#080808 50%,#272727 51%,#4f4f4f 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3c3c3c', endColorstr='#4f4f4f',GradientType=0 ); /* IE6-9 */
+
+	
+	 
+    border-radius: 5px;        /* CSS3草案 */  
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 5px;   /* Firefox用 */
+	margin:2px;
+	font-size:10px;
+	color:#FFF;
+}
+#footer_navi a{ width:100%; height:100%; display:block; padding-top:3px;}
+#footer_navi a:link, #footer_navi a:visited{ color:#FFF;}
+#footer_navi a:hover, #footer_navi a:active{ color:#FFF;}

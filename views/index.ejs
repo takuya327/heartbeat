@@ -1,4 +1,93 @@
-<form action="/users" method="POST">
-  <input type="text" name="name" value="">
-  <input type="submit" name="submit" value="送信">
-</form>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title></title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="stylesheet" href="css/common.css" media="all">
+<link rel="stylesheet" href="css/style.css" media="all">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="js/pageScroll.js"></script>
+</head>
+<body>
+<div id="wrapper" class="top">
+  <div id="container">
+    <!-- header -->
+    <header id="top">
+      <div class="hdr_title">
+        <h1><img src="images/title.png" width="260" alt="生存確認アプリ　HEART BEAT"></h1>
+      </div>
+    </header>
+    <!-- /header -->  
+    
+    <!-- top_register -->
+    <section id="top_register">
+      <div class="top_registerSet">
+      <p><img src="images/title_tiwtter_id_text.png" width="168" alt="生存確認を開始せよ!"></p>
+      <form action="/users" method="post">
+        <dl>
+          <dt><img src="images/title_tiwtter_id.png" width="98" alt="Twitter ID登録"></dt>
+          <dd>
+            <input name="name" type="text" class="register_text_area">
+          </dd>
+        </dl>
+        <input type="image" src="images/btn_submit.png" value="送　信" class="mgt10">
+      </form>
+      </div>
+    </section>
+    <!-- /top_register -->
+    
+    <footer>
+      <?php include('footer.html');?>
+    </footer>
+  </div>
+  <!-- /container --> 
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script> 
+<script src="../common/js/jquery.lazyload.js" type="text/javascript"></script> 
+<script>
+$(function(){
+    $('.lazy').lazyload({
+        effect: 'fadeIn'
+    });
+});
+</script>
+<link rel="stylesheet" href="../common/js/jqMini.css" />
+<script src="../common/js/jqMini.js"></script> 
+<script>
+  $("#jqmini").jqMini({
+    transition: "fade",
+    scrollCheck: true,
+    external: "external",
+    hash: true
+  });
+  
+  $("#show").bind(jqMiniEvent.show,function() {
+    alert("Show Event");
+  });
+  $("#hide").bind(jqMiniEvent.hide,function() {
+    alert("Hide Event");
+  });
+  $("#preshow").bind(jqMiniEvent.preShow,function(e) {
+    alert("PreShow Event");
+    return false;
+  });
+  $("#prehide").bind(jqMiniEvent.preHide,function() {
+    alert("PreHide Event");
+  });
+  $("#cancel").one(jqMiniEvent.preShow,function() {
+    alert("画面遷移をキャンセルしました。\nもう一度クリックすると説明が見られます。");
+    return false;
+  });
+  $("#tips").one(jqMiniEvent.show,function() {
+    alert("このアラートは一度だけ表示されます");
+  });
+  
+  $("#ajax").one(jqMiniEvent.show,function() {
+    $("#ajax-content").load("ajax-content.html");
+  });
+</script>
+</body>
+</html>
