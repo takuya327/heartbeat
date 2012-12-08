@@ -24,6 +24,8 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+var port = process.env.PORT || 5000;
+
 users.index = function(req, res){
   redis.keys( "heartbeat:user:*", function(err,value){
     var keys = value || [];
@@ -36,6 +38,7 @@ users.index = function(req, res){
       redis.hgetall( key, function(err,value){
         if( !err ) {
           console.log("value: " + JSON.stringify(value) );
+          value.key = key;
           users.push( value );
         }
         
@@ -81,6 +84,7 @@ beats.update = function(req, res){
       redis.hset( key, "beatX", beatX);
       redis.hset( key, "beatY", beatY);
       redis.hset( key, "beatZ", beatZ);
+      io.sockets.json.emit( "beat:update", { key: key, beatX: beatX, beatY: beatY, beatZ: beatZ } )
     }
     res.redirect("/users");
   });
@@ -92,13 +96,7 @@ app.post('/users', users.create );
 app.get('/beats/:name', beats.update );
 app.post('/beats/:name', beats.update );
 
-var port = process.env.PORT || 5000;
-
 server.listen(port);
 
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
 });

@@ -1,18 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title></title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="stylesheet" href="css/common.css" media="all">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="js/pageScroll.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script>
-  var socket = io.connect('http://localhost:5000');
-  socket.on('news', function (data) {
+  var update_one = function($this) {
+    var beatX = parseFloat( $this.attr("data-beatX") );
+    var beatY = parseFloat( $this.attr("data-beatY") );
+    var beatZ = parseFloat( $this.attr("data-beatZ") );
+    var val = beatX + beatY + beatZ;
+    var src = "";
+    
+    if( val < 0.1 ) {
+      src = "images/state_dying.png";
+    } else if ( val < 0.2 ) {
+      src = "images/state_bad.png";
+    } else if ( val < 0.3 ) {
+      src = "images/state_normal.png";
+    } else if ( val < 0.4 ) {
+      src = "images/state_better.png";
+    } else {
+      src = "images/state_best.png";
+    }
+    $this.find("dd > img").attr( "src", src );
+  };
+  
+  var socket = io.connect('http://quiita-hackson-heartbeat.herokuapp.com/');
+  socket.on('beat:update', function (data) {
+    console.log("beat:update coming");
     console.log(data);
-    socket.emit('my other event', { my: 'data' });
   });
+  
+  $(function(){
+    $("[data-user-key]").each( function(){
+      update_one( $(this) );
+    } );
+  });
+  
 </script>
-
-<h3>ユーザ一覧</h3>
+</head>
+<body>
+<div id="wrapper" class="alive"> 
+  <!-- /header --> 
+  
+  <!-- container -->
+  <div id="container">
+    <!-- header -->
+    <header>
+      <div class="hdr_title">
+        <h1><img src="images/title_mini.png" width="262" alt="生存確認アプリ　HEART BEAT"></h1>
+      </div>
+    </header>
+    <section id="heart_beat">
+      <ul>
 <% for( var i = 0, len = users.length; i < len; i++ ) { %>
 <% var user = users[i]; %>
-<div class="user">
-  <div class="icon"><img src="http://api.twitter.com/1/users/profile_image?screen_name=<%= user.name %>&size=normal" /></div>
-  <div class="name"><%= user.name %></div>
-  <div class="beat"><%= user.beatX %> <%= user.beatY %> <%= user.beatZ %></div>
-</div>
+        <li data-user-key="<%= user.key %>" data-beatX="<%= user.beatX %>" data-beatY="<%= user.beatY %>" data-beatZ="<%= user.beatZ %>">
+          <p><img src="http://api.twitter.com/1/users/profile_image?screen_name=<%= user.name %>&size=normal" width="128" alt="" class="profile_ph"></p>
+          <dl>
+            <dt class="title_twitter_id"><strong><%= user.name %></strong>　は現在</dt>
+            <dd><img src="" alt="" width="143" class="beat_stat"><br>
+            <a href="https://twitter.com/<%= user.name %>"><img src="images/btn_go-twitter.png" alt="この人のtwitterを確認する" width="140"></a></dd>
+          </dl>
+        </li>
 <% } %>
+      </ul>
+    </section>
+    
+    <!-- pagetop -->
+    <p class="pagetop"><a href="#" onclick="backToTop(); return false"><img src="images/ftr_btn_pagetop.png" width="15" alt=""></a></p>
+    <!-- /pagetop --> 
+  </div>
+  <!-- /container -->
+  
+  <footer>
+    <?php include('footer.html');?>
+  </footer>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script> 
+<script src="../common/js/jquery.lazyload.js" type="text/javascript"></script> 
+<script>
+$(function(){
+    $('.lazy').lazyload({
+        effect: 'fadeIn'
+    });
+});
+</script>
+<link rel="stylesheet" href="../common/js/jqMini.css" />
+<script src="../common/js/jqMini.js"></script> 
+<script>
+  $("#jqmini").jqMini({
+    transition: "fade",
+    scrollCheck: true,
+    external: "external",
+    hash: true
+  });
+  
+  $("#show").bind(jqMiniEvent.show,function() {
+    alert("Show Event");
+  });
+  $("#hide").bind(jqMiniEvent.hide,function() {
+    alert("Hide Event");
+  });
+  $("#preshow").bind(jqMiniEvent.preShow,function(e) {
+    alert("PreShow Event");
+    return false;
+  });
+  $("#prehide").bind(jqMiniEvent.preHide,function() {
+    alert("PreHide Event");
+  });
+  $("#cancel").one(jqMiniEvent.preShow,function() {
+    alert("画面遷移をキャンセルしました。\nもう一度クリックすると説明が見られます。");
+    return false;
+  });
+  $("#tips").one(jqMiniEvent.show,function() {
+    alert("このアラートは一度だけ表示されます");
+  });
+  
+  $("#ajax").one(jqMiniEvent.show,function() {
+    $("#ajax-content").load("ajax-content.html");
+  });
+</script>
+</body>
+</html>

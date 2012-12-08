@@ -154,8 +154,8 @@ address{
 /* script */
 #loader{ display:none;}
 
-html,body{ width:100%; height:100%;}
-body{ background-color:#000;}
+html,body{ }
+body{ background-color:#000; background:url(../images/bg.png) repeat #ffd800;}
 
 
 /* ----------------------------------------------------------------
@@ -166,14 +166,17 @@ body{ background-color:#000;}
 header#top{ padding:20px 0 10px;}
 header#top h1{ }
 
+.alive header{ margin:0 auto;}
+.alive header h1{ text-align:center; padding:20px;}
+
 
 
 
 /* ----------------------------------------------------------------
     contents
 ----------------------------------------------------------------- */
-#wrapper{ height:100%;}
-#container{ width:100%; height:100%; background:url(../images/bg.png) repeat #ffd800;}
+#wrapper{ }
+#container{ }
 
 
 
@@ -189,6 +192,28 @@ header#top h1{ }
 }
 .register_text_area{ width:220px; text-align:center;}
 .top_registerSet{ width:230px; margin:0 auto; padding:15px 0;}
+
+
+
+/* main contents */
+#heart_beat{ width:90%; margin:0 auto;}
+#heart_beat ul{}
+#heart_beat ul li{ border-bottom:3px solid #000; padding-top:20px; padding-bottom:20px;}
+#heart_beat ul li:first-child{ padding-top:0;}
+#heart_beat ul li:after{
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	font-size: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+.profile_ph{ float:left; margin-right:20px;}
+#heart_beat ul li dl { text-align:left;}
+#heart_beat ul li dl dt{ margin-bottom:10px;}
+#heart_beat ul li dl dd{}
+
 
 
 
