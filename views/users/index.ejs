@@ -20,15 +20,15 @@
     var src = "";
     console.log( key + ": " + val );
     
-    if( val < 0.1 ) {
+    if( val == 0 ) {
       src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_dead.png";
-    } else if ( val < 0.2 ) {
+    } else if ( val < 1 ) {
       src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_dying.png";
-    } else if ( val < 0.3 ) {
+    } else if ( val < 10 ) {
       src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_bad.png";
-    } else if ( val < 0.4 ) {
+    } else if ( val < 30 ) {
       src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_normal.png";
-    } else if ( val < 0.5 ) {
+    } else if ( val < 50 ) {
       src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_better.png";
     } else {
       src = "http://quiita-hackson-heartbeat.herokuapp.com/images/state_best.png";
