@@ -225,7 +225,7 @@ header#top h1{ }
 }
 #heart_beat p { position:relative;}
 .profile_ph{ float:left; margin-right:20px;}
-.profile_filter{ position:absolute; left:0; top:0;}
+.profile_filter{ position:absolute; left:0; top:}
 #heart_beat ul li dl { text-align:left;}
 #heart_beat ul li dl dt{}
 #heart_beat ul li dl dd{}
@@ -263,7 +263,7 @@ background: -moz-linear-gradient(center top , #81BC2E, #659324) repeat scroll 0 
 .pagetop{
 	width:50px;
 	float:right;
-	margin:20px 10px 0 0;
+	margin:20px 10px 44px 0;
   }
 .pagetop a{ width:50px; display:block;
 
