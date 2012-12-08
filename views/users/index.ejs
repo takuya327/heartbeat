@@ -1,0 +1,9 @@
+<h3>ユーザ一覧</h3>
+<% for( var i = 0, len = users.length; i < len; i++ ) { %>
+<% var user = users[i]; %>
+<div class="user">
+  <div class="icon"><img src="http://api.twitter.com/1/users/profile_image?screen_name=<%= user.name %>&size=normal" /></div>
+  <div class="name"><%= user.name %></div>
+  <div class="beat"><%= user.beat %></div>
+</div>
+<% } %>
