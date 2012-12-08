@@ -179,7 +179,7 @@ header#top h1{ }
 #container{ }
 
 
-
+/* register */
 #top_register{
 	width:255px;
 	margin:0 auto;
@@ -192,6 +192,20 @@ header#top h1{ }
 }
 .register_text_area{ width:220px; text-align:center;}
 .top_registerSet{ width:230px; margin:0 auto; padding:15px 0;}
+
+
+/* complated */
+#complated{}
+#complated a{
+	width:90%;
+	margin:0 auto;
+    border-radius: 5px;        /* CSS3草案 */  
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 5px;   /* Firefox用 */
+	background-color:#000;
+	padding:10px;
+	display:block;
+}
 
 
 
@@ -211,7 +225,7 @@ header#top h1{ }
 }
 .profile_ph{ float:left; margin-right:20px;}
 #heart_beat ul li dl { text-align:left;}
-#heart_beat ul li dl dt{ margin-bottom:10px;}
+#heart_beat ul li dl dt{}
 #heart_beat ul li dl dd{}
 
 
@@ -277,52 +291,4 @@ background: -moz-linear-gradient(center top , #81BC2E, #659324) repeat scroll 0 
 /* ----------------------------------------------------------------
     footer
 ----------------------------------------------------------------- */
-footer{}
-#footer_navi ul{
-	display: -webkit-box;
-    display: -moz-box;
-    display: -o-box;
-    display: box;
-	width:100%;
-}
-#footer_navi ul li{
-	height:45px;
-    -webkit-box-flex: 1.0;
-    -moz-box-flex: 1.0;
-    box-flex: 1.0;
-	
-
-	
-	font-size:9px;
-	color:#FFF;
-}
-#footer_navi ul li:last-child{
-	border-right:none;
-}
-#footer_navi ul li.nav_on{
-	height:45px;
-    -webkit-box-flex: 1.0;
-    -moz-box-flex: 1.0;
-    box-flex: 1.0;
-	
-	background: #3c3c3c; /* Old browsers */
-background: -moz-linear-gradient(top,  #3c3c3c 0%, #080808 50%, #272727 51%, #4f4f4f 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3c3c3c), color-stop(50%,#080808), color-stop(51%,#272727), color-stop(100%,#4f4f4f)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  #3c3c3c 0%,#080808 50%,#272727 51%,#4f4f4f 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  #3c3c3c 0%,#080808 50%,#272727 51%,#4f4f4f 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  #3c3c3c 0%,#080808 50%,#272727 51%,#4f4f4f 100%); /* IE10+ */
-background: linear-gradient(to bottom,  #3c3c3c 0%,#080808 50%,#272727 51%,#4f4f4f 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3c3c3c', endColorstr='#4f4f4f',GradientType=0 ); /* IE6-9 */
-
-	
-	 
-    border-radius: 5px;        /* CSS3草案 */  
-    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
-    -moz-border-radius: 5px;   /* Firefox用 */
-	margin:2px;
-	font-size:10px;
-	color:#FFF;
-}
-#footer_navi a{ width:100%; height:100%; display:block; padding-top:3px;}
-#footer_navi a:link, #footer_navi a:visited{ color:#FFF;}
-#footer_navi a:hover, #footer_navi a:active{ color:#FFF;}
+footer{ width:100%; background-color:#ffd200; height:44px; position:fixed; bottom:0;}
