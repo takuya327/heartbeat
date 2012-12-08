@@ -31,8 +31,10 @@ exports.create = function(req,res){
   redis.exists( key, function(err,value) {
     if( !err ) {
       console.log("name:" + name);
-      redis.hmset( key, "name", req.body.name);
-      redis.hsetnx( key, "beat", 0 );
+      redis.hset( key, "name", req.body.name);
+      redis.hsetnx( key, "beatX", 0 );
+      redis.hsetnx( key, "beatY", 0 );
+      redis.hsetnx( key, "beatZ", 0 );
     }
     res.redirect("/users");
   });
