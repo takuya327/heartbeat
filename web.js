@@ -43,7 +43,6 @@ users.index = function(req, res){
       redis.hgetall( key, function(err,value){
         if( !err ) {
           console.log("value: " + JSON.stringify(value) );
-          value.key = key;
           users.push( value );
         }
         
@@ -64,6 +63,7 @@ users.create = function(req,res){
     if( !err ) {
       console.log("name:" + name);
       redis.hset( key, "name", name);
+      redis.hset( key, "key", key);
       redis.hsetnx( key, "beatX", 0 );
       redis.hsetnx( key, "beatY", 0 );
       redis.hsetnx( key, "beatZ", 0 );
@@ -79,6 +79,7 @@ beats.update = function(req, res){
 
   redis.exists( key, function(err,value) {
     redis.hset( key, "name", name);
+    redis.hset( key, "key", key);
     
     if( !err ) {
       console.log("name:" + name);
